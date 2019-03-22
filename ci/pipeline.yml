@@ -17,7 +17,7 @@ resources:
   type: git
   source:
     uri: https://github.com/Raji-Mohan/rulesengine.git
-    branch: develop
+    branch: master
 - name: deploy-dev-env
   type: cf
   source:
@@ -51,7 +51,6 @@ jobs:
     params:
       manifest: build-output/manifest.yml
       path: build-output/*.jar
-      buildpacks: java_buildpack
 #    on_failure:
 #      put: slack-alert
 #      params:
