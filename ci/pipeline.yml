@@ -16,7 +16,7 @@ resources:
 - name: service-repo
   type: git
   source:
-    uri: https://github.com/akoranne/rulesengine.git
+    uri: https://github.com/Raji-Mohan/rulesengine.git
     branch: develop
 - name: deploy-dev-env
   type: cf
@@ -24,7 +24,7 @@ resources:
     api:             {{pws-api}}
     username:        {{deploy-username}}
     password:        {{deploy-password}}
-    skip_cert_check: true
+    skip_cert_check: false
     organization:    {{pws-organization}}
     space:           {{pws-staging-space}}
 
@@ -51,6 +51,7 @@ jobs:
     params:
       manifest: build-output/manifest.yml
       path: build-output/*.jar
+      buildpacks: java_buildpack
 #    on_failure:
 #      put: slack-alert
 #      params:
